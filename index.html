@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizeps Bernd's Mechanik Arena</title>
+
+    <!-- MathJax zur Darstellung von LaTeX-Formeln -->
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Startbildschirm -->
+    <div id="start-screen" class="screen active">
+        <h1>Bizeps Bernd's Mechanik Arena</h1>
+        <p>Wähle die Themen, die du lernen willst:</p>
+        <div id="topic-selection">
+            <!-- Themen werden von JavaScript eingefügt -->
+        </div>
+        <button id="start-game-btn">Kampf starten!</button>
+    </div>
+
+    <!-- Spielbildschirm (Arena) -->
+    <div id="game-screen" class="screen">
+        <div id="arena">
+            <img id="boss" src="https://i.ibb.co/whnqjYbG/Chat-GPT-Image-7-Juli-2025-15-21-02-png-2.png" alt="Bizeps Bernd">
+
+            <!-- Lebensleiste des Bosses (mit Herzen) -->
+            <div id="health-bar-container">
+                <div id="boss-name">BIZEPS BERND</div>
+                <div id="health-hearts">
+                    <!-- Herzen werden von JavaScript eingefügt -->
+                </div>
+            </div>
+
+            <div id="flashcard-container">
+                <div id="question-area">
+                    <p id="question"></p>
+                </div>
+                <div id="answer-area">
+                    <p id="answer"></p>
+                </div>
+            </div>
+
+            <div id="controls">
+                <button id="show-answer-btn">Lösung zeigen</button>
+                <button id="correct-btn" class="hidden">Gekonnt (Attacke!)</button>
+                <button id="incorrect-btn" class="hidden">Nicht gekonnt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Siegesbildschirm -->
+    <div id="win-screen" class="screen">
+        <h1>SIEG!</h1>
+        <p>Bizeps Bernd wurde besiegt! Du beherrschst den Stoff!</p>
+        <img src="https://i.ibb.co/MkZGQkc1/Chat-GPT-Image-7-Juli-2025-15-21-02-png-3.png" alt="Bizeps Bernd KO" class="ko-image">
+        <button id="play-again-btn">Nochmal trainieren</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
