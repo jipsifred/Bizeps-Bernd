@@ -127,10 +127,18 @@ button:disabled { background-color: #888; cursor: not-allowed; }
 /* Diese Regeln gelten nur für Bildschirme bis 768px Breite (Tablets, Handys) */
 @media (max-width: 768px) {
 
+    /* ================================================== */
+/*         RESPONSIVE STYLES FÜR MOBILGERÄTE         */
+/* ================================================== */
+
+/* Diese Regeln gelten nur für Bildschirme bis 768px Breite (Tablets, Handys) */
+@media (max-width: 768px) {
+
     /* Body anpassen, damit man scrollen kann */
     body {
         display: block; /* Flexbox-Zentrierung aufheben */
         text-align: left;
+        overflow-y: auto; /* HIER IST DIE WICHTIGE ÄNDERUNG */
     }
 
     h1 {
@@ -150,7 +158,6 @@ button:disabled { background-color: #888; cursor: not-allowed; }
         justify-content: flex-start;
         align-items: center;
         padding: 20px 10px;
-        /* HIER IST DIE WICHTIGE ÄNDERUNG */
         padding-bottom: calc(25px + env(safe-area-inset-bottom));
         box-sizing: border-box;
         background-image: none;
@@ -217,77 +224,9 @@ button:disabled { background-color: #888; cursor: not-allowed; }
     /* Start- und Siegesbildschirm ebenfalls anpassen */
     #start-screen, #win-screen {
         padding: 20px;
-        /* Auch hier den sicheren Bereich berücksichtigen */
         padding-bottom: calc(20px + env(safe-area-inset-bottom));
         box-sizing: border-box;
-    }
-
-    #topic-selection {
-        width: 90%;
-        font-size: 0.8em;
-    }
-
-    .ko-image {
-        width: 180px;
-        height: 180px;
-    }
-}
-
-    /* Alle absolut positionierten Elemente zurücksetzen */
-    #health-bar-container, #boss, #flashcard-container, #controls {
-        position: relative;
-        top: auto;
-        right: auto;
-        bottom: auto;
-        left: auto;
-        margin-bottom: 25px; /* Abstand zwischen den gestapelten Elementen */
-    }
-
-    /* Lebensleiste anpassen */
-    #health-bar-container {
-        width: 95%;
-        max-width: 400px;
-    }
-
-    /* Boss kleiner machen */
-    #boss {
-        width: 180px;
-        height: 180px;
-        order: -1; /* Boss über der Lebensleiste anzeigen, falls gewünscht */
-    }
-
-    /* Karteikarte auf volle Breite bringen */
-    #flashcard-container {
-        width: 95%;
-        min-height: 200px;
-    }
-    #question-area p, #answer-area p {
-        font-size: 0.8em; /* Schriftgröße auf Mobilgeräten etwas kleiner */
-    }
-
-    /* Buttons für Touch-Bedienung optimieren */
-    #controls {
-        width: 95%;
-        display: flex;
-        flex-direction: column; /* Buttons untereinander */
-        align-items: center;
-    }
-
-    #controls button {
-        width: 100%;
-        max-width: 350px;
-        font-size: 16px;
-        padding: 20px; /* Größere Klickfläche */
-        margin-bottom: 10px;
-    }
-    
-    .hidden {
-        display: none !important;
-    }
-
-    /* Start- und Siegesbildschirm ebenfalls anpassen */
-    #start-screen, #win-screen {
-        padding: 20px;
+        min-height: 100vh;
     }
 
     #topic-selection {
