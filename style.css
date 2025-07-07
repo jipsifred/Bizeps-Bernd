@@ -119,6 +119,12 @@ button:disabled { background-color: #888; cursor: not-allowed; }
 /* ================================================== */
 
 /* Diese Regeln gelten nur für Bildschirme bis 768px Breite (Tablets, Handys) */
+
+/* ================================================== */
+/*         RESPONSIVE STYLES FÜR MOBILGERÄTE         */
+/* ================================================== */
+
+/* Diese Regeln gelten nur für Bildschirme bis 768px Breite (Tablets, Handys) */
 @media (max-width: 768px) {
 
     /* Body anpassen, damit man scrollen kann */
@@ -134,25 +140,98 @@ button:disabled { background-color: #888; cursor: not-allowed; }
 
     /* Arena-Layout komplett neu aufbauen */
     #arena {
-        /* Feste Größe und Skalierung aufheben */
         width: 100%;
         height: auto;
         min-height: 100vh;
         transform: none;
         border: none;
-
-        /* Elemente untereinander stapeln */
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Oben anfangen */
+        justify-content: flex-start;
         align-items: center;
         padding: 20px 10px;
+        /* HIER IST DIE WICHTIGE ÄNDERUNG */
+        padding-bottom: calc(25px + env(safe-area-inset-bottom));
         box-sizing: border-box;
-
-        /* Hintergrundbild entfernen, da es zu groß ist */
         background-image: none;
-        background-color: #2c2c54; /* Eine passende dunkle Farbe */
+        background-color: #2c2c54;
     }
+
+    /* Alle absolut positionierten Elemente zurücksetzen */
+    #health-bar-container, #boss, #flashcard-container, #controls {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin-bottom: 25px;
+    }
+    
+    /* Der letzte Button braucht keinen Abstand nach unten mehr, da die Arena das Padding hat */
+    #controls {
+        margin-bottom: 0;
+    }
+
+    /* Lebensleiste anpassen */
+    #health-bar-container {
+        width: 95%;
+        max-width: 400px;
+    }
+
+    /* Boss kleiner machen */
+    #boss {
+        width: 180px;
+        height: 180px;
+        order: -1;
+    }
+
+    /* Karteikarte auf volle Breite bringen */
+    #flashcard-container {
+        width: 95%;
+        min-height: 200px;
+    }
+    #question-area p, #answer-area p {
+        font-size: 0.8em;
+    }
+
+    /* Buttons für Touch-Bedienung optimieren */
+    #controls {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #controls button {
+        width: 100%;
+        max-width: 350px;
+        font-size: 16px;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .hidden {
+        display: none !important;
+    }
+
+    /* Start- und Siegesbildschirm ebenfalls anpassen */
+    #start-screen, #win-screen {
+        padding: 20px;
+        /* Auch hier den sicheren Bereich berücksichtigen */
+        padding-bottom: calc(20px + env(safe-area-inset-bottom));
+        box-sizing: border-box;
+    }
+
+    #topic-selection {
+        width: 90%;
+        font-size: 0.8em;
+    }
+
+    .ko-image {
+        width: 180px;
+        height: 180px;
+    }
+}
 
     /* Alle absolut positionierten Elemente zurücksetzen */
     #health-bar-container, #boss, #flashcard-container, #controls {
